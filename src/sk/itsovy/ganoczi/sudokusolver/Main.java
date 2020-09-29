@@ -13,6 +13,16 @@ public class Main {
         Board board=new Board(data.getData());
        SudokuSolver sdk=new SudokuSolver();
        view.printBoard(board.getTiles());
+        System.out.println("----------------------------");
+
+       sdk.start();
+
+       while(sdk.isComplete()==false){
+           sdk.reduceAvailableValues();
+           sdk.assignNumber();
+       }
+
+       view.printBoard(sdk.getBoard().getTiles());
 
 
 
